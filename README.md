@@ -1,1 +1,1 @@
-# NTI_Microcontroller
+# Atmega32
