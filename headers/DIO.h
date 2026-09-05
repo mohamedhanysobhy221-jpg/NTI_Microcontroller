@@ -1,3 +1,5 @@
+#ifndef DIO_H_
+#define DIO_H_
 #include "std_types.h"
 #define INPUT 0
 #define OUTPUT 1
@@ -31,3 +33,4 @@ u8		DIO_u8GetPinValue			(u8 PortId,u8 PinId);//RETURN PIN VALUE
  
 void	DIO_voidSetPortDirection	(u8 PortId,u8 Direction);//DDR FOR ALL PINS , PORT
 void	DIO_voidSetPortValue		(u8 PortId,u8 Value);//PORT_REGISTER FOR ALL PINS
+#endif
