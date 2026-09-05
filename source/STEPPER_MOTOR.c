@@ -1,0 +1,138 @@
+﻿#include <util/delay.h>
+#include "DIO.h"
+#include "STEPPER_MOTOR.h"
+void MOTOR_init(void){
+	DIO_voidSetPortDirection(MOTOR_PORT,OUTPUT);
+}
+void fullstep(u8 direction){
+if(direction == 0){	
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	_delay_ms(10);}
+else{
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+}
+}
+void halfstep(u8 direction){
+if(direction == 0){
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	_delay_ms(10);}
+	
+else{
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN0,HIGH);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN1,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN2,LOW);
+	DIO_voidSetPinValue(MOTOR_PORT,PIN3,LOW);
+	_delay_ms(10);
+	
+}	
+}
